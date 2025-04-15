@@ -1,0 +1,58 @@
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 150px;
+  height: calc(100% - 100px);
+  background-color: #222;
+  padding-top: 20px;
+  z-index: 999;
+  color: white;
+}
+
+/* Sidebar List */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Animation for each sidebar item */
+.sidebar ul li {
+  margin: 15px 0;
+  text-align: center;
+  animation: slideIn 1s ease-out forwards; /* Increase duration to 1s */
+  opacity: 0; /* Initial opacity to make the element hidden */
+  animation-delay: 0.3s; /* Delay for each item */
+}
+
+/* Animation effect */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Starts from outside the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Ends at its original position */
+    opacity: 1; /* Full visibility */
+  }
+}
+
+/* Sidebar Links */
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition: background 0.3s ease, transform 0.3s ease; /* Added transition for zoom effect */
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+  background-color: #444;
+  transform: scale(1.1); /* Zoom in effect on hover */
+  cursor: pointer; /* Change cursor to indicate hover */
+  cursor: pointer; /* Change cursor to indicate hover */
+
+}
