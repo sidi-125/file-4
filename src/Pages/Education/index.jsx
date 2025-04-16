@@ -1,10 +1,12 @@
+// src/Pages/Education/index.jsx
 import React, { useState, useEffect } from 'react';
-import '../Style.css/Education.css';
+import '../Education/Education.css';
 
 function Education() {
   const [modalContent, setModalContent] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  // Education Data
   const educationData = [
     {
       id: 1,
