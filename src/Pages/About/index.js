@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Style.css/About.css';
+import './About.css';
 
 function About() {
   return (
@@ -16,3 +16,4 @@ function About() {
 }
 
 export default About;
+
