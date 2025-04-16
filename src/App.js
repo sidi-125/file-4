@@ -1,15 +1,14 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'; 
-
-import Skills from './Pages/Skills/index';
+import Contact from './Pages/Contact';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/skills" element={<Skills />} />
+        
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
