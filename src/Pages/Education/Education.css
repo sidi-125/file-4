@@ -1,41 +1,150 @@
 .education-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 60px 20px;
-    animation: fadeIn 1.5s ease-in-out;
-  }
+  padding: 100px 20px; /* Increased top and bottom padding */
+  text-align: center;
+  min-height: 90vh; /* Increased minimum height */
   
-  .education-box {
-    max-width: 900px;
-    width: 100%;
-    background: #fff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-out forwards;
+}
+
+.education-title {
+  font-size: 80px;
+  font-weight: 10%;
+  margin-bottom: 30px;
+  color: hsl(210, 50%, 95%);
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 5s, transform 5s; /* Slow down the speed */
+}
+
+.education-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove cursor pointer and highlight effect */
+.education-table tr:hover {
+  background-color: inherit; /* Remove hover highlight */
+  transform: inherit; /* Remove scale effect */
+  cursor: default; /* Remove pointer cursor */
+}
+
+
+
+.education-table {
+  width: 70%; /* Reduced table width */
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  animation: slideUp 2s ease-out 0.5s forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
-  .education-heading {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .education-description {
-    font-size: 18px;
-    color: #444;
-    line-height: 1.6;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
+
+.education-table tr {
+  opacity: 0;
+  animation: fadeInRow 1.5s ease-out forwards;
+  animation-delay: calc(0.2s * var(--row-index));
+}
+
+@keyframes fadeInRow {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.education-table th,
+.education-table td {
+  border: 1px solid hsl(24, 100%, 99%);
+  padding: 24px 16px; /* Increased vertical padding for height */
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.education-table th {
+  background-color: hwb(20 96% 1%);
+  color: #0a0000;
+  padding: 18px;
+}
+
+.education-table th:first-child,
+.education-table td:first-child {
+  width: 60px;
+}
+
+.education-table tr:hover {
+  background-color: #6fb4ec;
+  cursor: pointer;
+  transform: scale(1.005);
+}
+
+.view-link {
+  color: #4A90E2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.view-link:hover {
+  color: #f13c05;
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeInOverlay 0.5s ease-out forwards;
+}
+
+@keyframes fadeInOverlay {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modal-content {
+  background-color: #050101;
+  padding: 20px;
+  border-radius: 10px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.3s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 10px 0;
+}
