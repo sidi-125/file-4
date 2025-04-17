@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../Home/Home.css';
-//import profileImg from '../assets/profile.png';
+import profileImg from '../../assets/profile.png';
 
 function Hero() {
   const [showModal, setShowModal] = useState(false);
@@ -27,6 +27,9 @@ function Hero() {
       </div>
 
       <div className="hero-right">
+      <img src={profileImg} alt="Sidra Tufail" className="hero-img" />
+
+
       </div>
 
       {showModal && (
