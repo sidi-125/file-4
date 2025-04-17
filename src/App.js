@@ -5,6 +5,8 @@ import Education from './Pages/Education/index.jsx';
 import Projects from './Pages/Projects';
 import './App.css';
 
+import Certifications from './Pages/Certifications/index';
+import './App.css';
 function App() {
   return (
     <Router>
@@ -12,6 +14,7 @@ function App() {
         <Route path="/education" element={<Education />} />
         
         <Route path="/projects" element={<Projects />} />
+        <Route path="/certifications" element={<Certifications />} />
       </Routes>
     </Router>
   );
