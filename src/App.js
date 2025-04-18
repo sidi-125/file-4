@@ -6,13 +6,19 @@ import Contact from './Pages/Contact';
 import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 import Certifications from './Pages/Certifications';
 import Education from './Pages/Education';
 import './App.css';
 
+<<<<<<< Updated upstream
 =======
 import './App.css';
 import CertificationSection from './Pages/Certifications';
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
