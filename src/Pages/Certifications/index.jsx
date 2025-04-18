@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Certifications/Certificatiojns.css';
+import '../Certifications/Certifications.css';
 
 const certifications = [
   {
