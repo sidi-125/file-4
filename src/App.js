@@ -8,6 +8,7 @@ import Projects from './Pages/Projects';
 import Certifications from './Pages/Certifications';
 import Education from './Pages/Education';
 import './App.css';
+import Sidebar from './Pages/Sidebar';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/Projects" element={<Projects />} />
         <Route path="/Certifications" element={<Certifications />} />
         <Route path="/Education" element={<Education />} />
+        <Route path="/Sidebar" element={<Sidebar />} />
+
       </Routes>
     </Router>
   );
