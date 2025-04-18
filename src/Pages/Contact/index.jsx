@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Style.css/Contact.css';
+import '../Contact/Contact.css';
 import { FaFacebook,  FaTiktok, FaInstagram } from 'react-icons/fa';
 
 function Contact() {
