@@ -8,8 +8,13 @@ import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import Certifications from './Pages/Certifications';
 import Education from './Pages/Education';
+<<<<<<< Updated upstream
 import Home from './Pages/Home';
 import './App.css'; 
+=======
+import './App.css';
+
+>>>>>>> Stashed changes
 
 
 function App() {

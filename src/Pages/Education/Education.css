@@ -10,7 +10,12 @@
     font-size: 80px;
     font-weight: 10%;
     margin-bottom: 30px;
+<<<<<<< Updated upstream
     color: hwb(0 98% 1%);
+=======
+    color: hsl(210, 50%, 95%);
+    opacity: 0;
+>>>>>>> Stashed changes
     transform: translateY(-50px);
     transition: opacity 5s, transform 5s; /* Slow down the speed */
   }
