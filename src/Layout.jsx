@@ -1,8 +1,8 @@
-// src/Layout.jsx
+
 
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import './Layout.css'; // apna custom layout styling yahan likhna
+import './Layout.css'; 
 
 const Layout = () => {
   return (
