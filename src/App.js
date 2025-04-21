@@ -7,7 +7,8 @@ import Contact from './Pages/Contact';
 import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import './App.css';
-import CertificationSection from './Pages/Certifications';
+import Certifications from './Pages/Certifications';
+import Education from './Pages/Education';
 
 
 function App() {
