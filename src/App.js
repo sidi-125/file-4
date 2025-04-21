@@ -8,22 +8,14 @@ import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import Certifications from './Pages/Certifications';
 import Education from './Pages/Education';
-<<<<<<< Updated upstream
 import Home from './Pages/Home';
-import './App.css'; 
-=======
 import './App.css';
-
->>>>>>> Stashed changes
-
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Layout wrapper */}
         <Route path="/" element={<Layout />}>
-          {/* Nested pages through Outlet */}
           <Route index element={<Home />} />
           <Route path="About" element={<About />} />
           <Route path="Contact" element={<Contact />} />
