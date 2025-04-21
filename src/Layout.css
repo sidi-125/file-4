@@ -1,0 +1,103 @@
+.header {
+  background-color: #222;
+  color: white;
+  padding: 5px 30px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.blink-shadow {
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 2px #ffffff, 0 0 10px #ffffff;
+  animation: blinkZoom 1.5s infinite ease-in-out;
+}
+
+/* Blinking + Zooming effect */
+@keyframes blinkZoom {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+  
+  /* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 150px;
+  height: calc(100% - 100px);
+  background-color: #222;
+  padding-top: 20px;
+  z-index: 999;
+  color: white;
+}
+
+/* Sidebar List */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Animation for each sidebar item */
+.sidebar ul li {
+  margin: 15px 0;
+  text-align: center;
+  animation: slideIn 1s ease-out forwards; /* Increase duration to 1s */
+  opacity: 0; /* Initial opacity to make the element hidden */
+  animation-delay: 0.3s; /* Delay for each item */
+}
+
+/* Animation effect */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%); /* Starts from outside the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Ends at its original position */
+    opacity: 1; /* Full visibility */
+  }
+}
+
+/* Sidebar Links */
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition: background 0.3s ease, transform 0.3s ease; /* Added transition for zoom effect */
+}
+
+/* Hover effect */
+.sidebar ul li a:hover {
+  background-color: #444;
+  transform: scale(1.1); /* Zoom in effect on hover */
+  cursor: pointer; /* Change cursor to indicate hover */
+  cursor: pointer; /* Change cursor to indicate hover */
+
+}
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+
+
