@@ -29,6 +29,7 @@ function Contact() {
             Watch My Intro Video
           </button>
 
+          {/* Social Media Icons */}
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <FaFacebook />
