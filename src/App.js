@@ -7,7 +7,7 @@ import Contact from './Pages/Contact';
 import Skills from './Pages/Skills';
 import Projects from './Pages/Projects';
 import './App.css';
-import Certifications from './Pages/Certifications';
+import CertificationSection from './Pages/Certifications';
 
 
 function App() {
@@ -19,7 +19,8 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Skills" element={<Skills />} />
         <Route path="/Projects" element={<Projects />} />
-        <Route path="/Certifications" element={<Certifications />} />
+        <Route path="/Certifications" element={<CertificationSection />} />
+
 
 
 
