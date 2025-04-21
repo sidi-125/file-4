@@ -42,6 +42,7 @@ function Contact() {
             </div>
           )}
 
+          {/* Social Media Icons */}
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <FaFacebook />
