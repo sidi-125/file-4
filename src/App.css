@@ -32,3 +32,20 @@ body::before {
     transform: translate(-50%, -50%);
   }
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body takes full height */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the layout covers full viewport height */
+}
+
+.content {
+  flex-grow: 1; /* Allow content to take remaining space */
+  overflow: auto; /* Enable vertical scrolling if content overflows */
+}

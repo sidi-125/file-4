@@ -4,6 +4,7 @@
   padding: 5px 30px;
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Added for toggle button space */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -18,7 +19,6 @@
   animation: blinkZoom 1.5s infinite ease-in-out;
 }
 
-/* Blinking + Zooming effect */
 @keyframes blinkZoom {
   0%, 100% {
     opacity: 1;
@@ -30,8 +30,18 @@
   }
 }
 
-  
-  /* Sidebar */
+/* ✅ Toggle Button Style */
+.toggle-btn {
+  display: none;
+  font-size: 26px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 100px;
@@ -42,54 +52,49 @@
   padding-top: 20px;
   z-index: 999;
   color: white;
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Sidebar List */
 .sidebar ul {
   list-style: none;
   padding: 0;
 }
 
-/* Animation for each sidebar item */
 .sidebar ul li {
   margin: 15px 0;
   text-align: center;
-  animation: slideIn 1s ease-out forwards; /* Increase duration to 1s */
-  opacity: 0; /* Initial opacity to make the element hidden */
-  animation-delay: 0.3s; /* Delay for each item */
+  animation: slideIn 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s;
 }
 
-/* Animation effect */
 @keyframes slideIn {
   0% {
-    transform: translateX(-100%); /* Starts from outside the screen */
+    transform: translateX(-100%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0); /* Ends at its original position */
-    opacity: 1; /* Full visibility */
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-/* Sidebar Links */
 .sidebar ul li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
   display: block;
   padding: 10px;
-  transition: background 0.3s ease, transform 0.3s ease; /* Added transition for zoom effect */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover effect */
 .sidebar ul li a:hover {
   background-color: #444;
-  transform: scale(1.1); /* Zoom in effect on hover */
-  cursor: pointer; /* Change cursor to indicate hover */
-  cursor: pointer; /* Change cursor to indicate hover */
-
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
+/* ✅ Footer */
 footer {
   position: fixed;
   bottom: 0;
@@ -98,6 +103,23 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
-  z-index: 10; /* Ensure footer stays on top */
+  z-index: 10;
 }
 
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 60px;
+    height: calc(100% - 60px);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+}
