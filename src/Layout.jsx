@@ -109,6 +109,7 @@ const Layout = () => {
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           mt: 8,
+          backgroundColor: 'black'
         }}
       >
         <Outlet />
