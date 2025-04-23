@@ -1,15 +1,4 @@
-.header {
-  background-color: #222;
-  color: white;
-  padding: 5px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Added for toggle button space */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
+
 
 .blink-shadow {
   font-size: 40px;
@@ -18,108 +7,9 @@
   text-shadow: 0 0 2px #ffffff, 0 0 10px #ffffff;
   animation: blinkZoom 1.5s infinite ease-in-out;
 }
+  
 
-@keyframes blinkZoom {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(1.2);
-  }
-}
 
-/* ✅ Toggle Button Style */
-.toggle-btn {
-  display: none;
-  font-size: 26px;
-  background: none;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-}
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 100px;
-  left: 0;
-  width: 150px;
-  height: calc(100% - 100px);
-  background-color: #222;
-  padding-top: 20px;
-  z-index: 999;
-  color: white;
-  transition: transform 0.3s ease-in-out;
-}
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
 
-.sidebar ul li {
-  margin: 15px 0;
-  text-align: center;
-  animation: slideIn 1s ease-out forwards;
-  opacity: 0;
-  animation-delay: 0.3s;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  display: block;
-  padding: 10px;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.sidebar ul li a:hover {
-  background-color: #444;
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-/* ✅ Footer */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  z-index: 10;
-}
-
-/* ✅ Responsive Styles */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    position: fixed;
-    top: 60px;
-    height: calc(100% - 60px);
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
-  .toggle-btn {
-    display: block;
-  }
-}
