@@ -13,7 +13,7 @@ const Layout = () => {
   };
 
   const drawer = (
-    <Box sx={{ backgroundColor: '#222', height: '100%', pt: 2 }}>
+    <Box sx={{ backgroundColor: '#222', height: '100%', pt: 6 }}>
       <List>
         {['Home', 'About', 'Education', 'Skills', 'Projects', 'Certifications', 'Contact'].map((text) => (
           <ListItem
@@ -128,7 +128,7 @@ const Layout = () => {
     flexGrow: 1,
     p: 3, // Padding ko adjust kiya gaya
     width: { sm: `calc(100% - ${drawerWidth}px)` },
-    mt: 8, // Header ke neeche space chhoda gaya
+    mt: 6, // Header ke neeche space chhoda gaya
     backgroundColor: 'black',
     minHeight: 'calc(100vh - 160px)', // Total screen height se header aur footer ka height minus kiya gaya
     overflow: 'auto', // Agar content bohot lamba ho toh scroll bar show hoga
