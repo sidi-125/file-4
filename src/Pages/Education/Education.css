@@ -1,38 +1,10 @@
-.education-section {
-  padding: 100px 20px; /* Increased top and bottom padding */
-  text-align: center;
-  min-height: 90vh; /* Increased minimum height */
-  opacity: 0;
-  animation: fadeIn 2s ease-out forwards;
-}
-
-.education-title {
-  font-size: 80px;
-  font-weight: 10%;
-  margin-bottom: 30px;
-  color: hsl(210, 50%, 95%);
-  opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 5s, transform 5s; /* Slow down the speed */
-}
-
-.education-title.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Remove cursor pointer and highlight effect */
-.education-table tr:hover {
-  background-color: inherit; /* Remove hover highlight */
-  transform: inherit; /* Remove scale effect */
-  cursor: default; /* Remove pointer cursor */
-}
 
 .education-table {
   width: 70%; /* Reduced table width */
   margin: 0 auto;
   border-collapse: collapse;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  background-color: #edf3f3;
+  box-shadow: 0 0 12px rgb(240, 237, 237);
   animation: slideUp 2s ease-out 0.5s forwards;
 }
 
@@ -60,7 +32,7 @@
 
 .education-table th,
 .education-table td {
-  border: 1px solid hsl(24, 100%, 99%);
+  border: 2px solid hsl(26, 100%, 1%);
   padding: 24px 16px; /* Increased vertical padding for height */
   font-size: 18px;
   text-align: center;
@@ -68,8 +40,8 @@
 }
 
 .education-table th {
-  background-color: hwb(20 96% 1%);
-  color: #0a0000;
+  background-color: lab(4.08% 10.59 -25.49);
+  color: hsl(0, 16%, 96%);
   padding: 18px;
 }
 
@@ -103,7 +75,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(245, 239, 239, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,7 +89,7 @@
 }
 
 .modal-content {
-  background-color: #050101;
+  background-color: #fcf6f6;
   padding: 20px;
   border-radius: 10px;
   width: 450px;
