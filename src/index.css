@@ -1,13 +1,18 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-a {
-  text-decoration: none;
+@keyframes moveImage {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
 }
 
-h1, h2, h3 {
-  font-family: 'Arial', sans-serif;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
 }
