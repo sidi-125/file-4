@@ -1,12 +1,13 @@
 // src/components/Projects.jsx
 import React from 'react';
+import { Grid, Box, Typography, Button } from '@mui/material';
 import '../Projects/Projects.css';
 
 const projects = [
   {
     title: 'Portfolio Website',
     description: 'A personal portfolio to showcase my skills and projects.',
-    image: 'https://static9.depositphotos.com/1559686/1228/i/450/depositphotos_12286955-stock-photo-technology-in-the-hands.jpg', // Portfolio image
+    image: 'https://static9.depositphotos.com/1559686/1228/i/450/depositphotos_12286955-stock-photo-technology-in-the-hands.jpg', 
     github: 'https://github.com/example/portfolio',
     demo: 'https://example.com/portfolio',
   },
@@ -28,24 +29,53 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="projects-container">
-      <h2 className="projects-heading">My Projects</h2>
-      <div className="projects-grid">
+    <Box className="projects-container">
+      <Typography variant="h2" className="projects-heading">My Projects</Typography>
+      <Grid container spacing={3} justifyContent="center" className="projects-grid">
         {projects.map((project, index) => (
-          <div key={index} className="project-card">
+          <Grid 
+            item 
+            xs={12}  // Stacks vertically on small screens
+            sm={6}   // 2 items per row on small screens
+            md={4}   // 3 items per row on larger screens
+            key={index}
+            className="project-card"
+            sx={{
+              height: { xs: 300, sm: 350, md: 400 },  // Adjust height for different screen sizes
+              display: 'flex',
+              flexDirection: 'column',
+              overflow: 'hidden',
+            }}
+          >
             <img src={project.image} alt={project.title} className="project-image" />
-            <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <div className="project-buttons">
-                <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href={project.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
-              </div>
-            </div>
-          </div>
+            <Box className="project-content" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', padding: '10px 20px' }}>
+                <Button 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-link"
+                  sx={{ backgroundColor: '#4f46e5', color: 'white', '&:hover': { backgroundColor: '#4338ca' } }}
+                >
+                  GitHub
+                </Button>
+                <Button 
+                  href={project.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn-link"
+                  sx={{ backgroundColor: '#4f46e5', color: 'white', '&:hover': { backgroundColor: '#4338ca' } }}
+                >
+                  Live Demo
+                </Button>
+              </Box>
+              <Typography variant="h5" sx={{ paddingLeft: '20px' }}>{project.title}</Typography>
+              <Typography variant="body2" sx={{ paddingLeft: '20px', paddingBottom: '20px' }}>{project.description}</Typography>
+            </Box>
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 
