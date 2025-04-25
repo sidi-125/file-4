@@ -1,32 +1,20 @@
-// src/App.jsx
+// AppDynamic.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './Layout'; // Layout component
-import About from './Pages/About';
-import Contact from './Pages/Contact';
-import Skills from './Pages/Skills';
-import Projects from './Pages/Projects';
-import Certifications from './Pages/Certifications';
-import Education from './Pages/Education';
-import Home from './Pages/Home';
-import './App.css';
+import DynamicTable from './Pages/Dynamic'; // Importing the Dynamic Table component
 
-function App() {
+function AppDynamic() {
+  const dynamicData = [
+    { name: 'Hamza', age: 30, city: 'Peshawar' },
+    { name: 'Nida', age: 28, city: 'Multan' },
+    { name: 'Usman', age: 23, city: 'Quetta' },
+  ];
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="About" element={<About />} />
-          <Route path="Contact" element={<Contact />} />
-          <Route path="Skills" element={<Skills />} />
-          <Route path="Projects" element={<Projects />} />
-          <Route path="Certifications" element={<Certifications />} />
-          <Route path="Education" element={<Education />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div style={{ padding: '20px' }}>
+      <h2>Dynamic Table (Dynamic Data)</h2>
+      <DynamicTable data={dynamicData} />
+    </div>
   );
 }
 
-export default App;
+export default AppDynamic;
