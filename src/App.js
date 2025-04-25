@@ -1,32 +1,26 @@
-// src/App.jsx
+// AppGeneralized.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './Layout'; // Layout component
-import About from './Pages/About';
-import Contact from './Pages/Contact';
-import Skills from './Pages/Skills';
-import Projects from './Pages/Projects';
-import Certifications from './Pages/Certifications';
-import Education from './Pages/Education';
-import Home from './Pages/Home';
-import './App.css';
+import GeneralizedTable from './Pages/Generalize'; // Importing the Generalized Table component
 
-function App() {
+function AppGeneralized() {
+  const columns = [
+    { label: 'Name', field: 'name' },
+    { label: 'Age', field: 'age' },
+    { label: 'City', field: 'city' },
+  ];
+
+  const data = [
+    { name: 'Ali', age: 22, city: 'Lahore' },
+    { name: 'Sara', age: 25, city: 'Karachi' },
+    { name: 'Zain', age: 20, city: 'Islamabad' },
+  ];
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="About" element={<About />} />
-          <Route path="Contact" element={<Contact />} />
-          <Route path="Skills" element={<Skills />} />
-          <Route path="Projects" element={<Projects />} />
-          <Route path="Certifications" element={<Certifications />} />
-          <Route path="Education" element={<Education />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div style={{ padding: '20px' }}>
+      <h2>Generalized Table (Fixed Columns)</h2>
+      <GeneralizedTable columns={columns} data={data} />
+    </div>
   );
 }
 
-export default App;
+export default AppGeneralized;
