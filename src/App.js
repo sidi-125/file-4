@@ -24,3 +24,15 @@ function AppGeneralized() {
 }
 
 export default AppGeneralized;
+const columns = [
+  { label: 'Name', field: 'name' },
+  { label: 'Age', field: 'age' },
+  { label: 'City', field: 'city' },
+];
+
+const data = [
+  { name: 'Ali', age: 22, city: 'Lahore' },
+  { name: 'Sara', age: 25, city: 'Karachi' },
+];
+
+<DynamicTable columns={columns} data={data} />
