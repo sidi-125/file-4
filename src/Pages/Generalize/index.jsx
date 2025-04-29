@@ -17,6 +17,10 @@ import { useTheme } from '@mui/material/styles';
 const GeneralizedTable = ({ columns, data }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  generalized-dynamic-table
+
+
+main
   return (
     <TableContainer component={Paper} sx={{ marginBottom: '20px' }}>
       <Table>
