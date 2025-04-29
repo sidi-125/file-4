@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText, Box, CssBaseline } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText, Box, CssBaseline, Button, Dialog } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import LoginForm from './Pages/LoginForm/LoginForm'; // Import the LoginForm
 
 const drawerWidth = 180;
 
 const Layout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);  // For opening the login form
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const handleLoginClick = () => {
+    setOpenLogin(true);  // Open login form on button click
+  };
+
+  const handleCloseLogin = () => {
+    setOpenLogin(false);  // Close login form
   };
 
   const drawer = (
@@ -75,6 +85,10 @@ const Layout = () => {
           >
             Portfolio
           </Typography>
+          
+          {/* Login Button */}
+          <Button color="inherit" onClick={handleLoginClick}>Login</Button> {/* Open login form */}
+          
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -123,20 +137,19 @@ const Layout = () => {
 
       {/* Main Content */}
       <Box
-  component="main"
-  sx={{
-    flexGrow: 1,
-    p: 3, // Padding ko adjust kiya gaya
-    width: { sm: `calc(100% - ${drawerWidth}px)` },
-    mt: 6, // Header ke neeche space chhoda gaya
-    backgroundColor: 'black',
-    minHeight: 'calc(100vh - 160px)', // Total screen height se header aur footer ka height minus kiya gaya
-    overflow: 'auto', // Agar content bohot lamba ho toh scroll bar show hoga
-  }}
->
-  <Outlet />
-</Box>
-
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          mt: 6,
+          backgroundColor: 'black',
+          minHeight: 'calc(100vh - 160px)',
+          overflow: 'auto',
+        }}
+      >
+        <Outlet />
+      </Box>
 
       {/* Footer */}
       <Box
@@ -156,6 +169,11 @@ const Layout = () => {
           &copy; 2025 Sidra Tufail. All rights reserved.
         </Typography>
       </Box>
+
+      {/* Dialog for Login Form */}
+      <Dialog open={openLogin} onClose={handleCloseLogin}>
+        <LoginForm onClose={handleCloseLogin} />
+      </Dialog>
     </Box>
   );
 };
