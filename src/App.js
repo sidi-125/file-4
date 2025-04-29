@@ -31,19 +31,27 @@ const data = [
 
   return (
     <div style={{ padding: '20px' }}>
-<<<<<<< Updated upstream
+ Updated upstream
       <h2>Generalized Table (Fixed Columns)</h2>
-=======
       <h2>Generalized Table</h2>
->>>>>>> Stashed changes
+ Stashed changes
       <GeneralizedTable columns={columns} data={data} />
     </div>
   );
-}
-
-<<<<<<< Updated upstream
+} Updated upstream
 export default AppGeneralized;
-=======
-export default GeneralizedTable;
+Educationtable-customized
+const columns = [
+  { label: 'Name', field: 'name' },
+  { label: 'Age', field: 'age' },
+  { label: 'City', field: 'city' },
+];
 
->>>>>>> Stashed changes
+const data = [
+  { name: 'Ali', age: 22, city: 'Lahore' },
+  { name: 'Sara', age: 25, city: 'Karachi' },
+];
+
+<DynamicTable columns={columns} data={data} />
+  
+export default Generalize Stashed changes main
