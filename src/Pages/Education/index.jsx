@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import '../Education/Education.css';
 
 function Education() {
@@ -63,30 +64,33 @@ function Education() {
   return (
     <section className="education-section">
       <h2 className={`education-title ${isVisible ? 'visible' : ''}`}>Education</h2>
-      <table className="education-table">
-        <thead>
-          <tr>
-            <th>Sr. No.</th>
-            <th>Degree</th>
-            <th>Institution</th>
-            <th>Year</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {educationData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.degree}</td>
-              <td>{item.institution}</td>
-              <td>{item.year}</td>
-              <td>
-                <button className="view-link" onClick={() => openModal(item)}>View</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell><strong>Sr. No.</strong></TableCell>
+              <TableCell><strong>Degree</strong></TableCell>
+              <TableCell><strong>Institution</strong></TableCell>
+              <TableCell><strong>Year</strong></TableCell>
+              <TableCell><strong>Action</strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {educationData.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.id}</TableCell>
+                <TableCell>{item.degree}</TableCell>
+                <TableCell>{item.institution}</TableCell>
+                <TableCell>{item.year}</TableCell>
+                <TableCell>
+                  <Button variant="outlined" onClick={() => openModal(item)}>View</Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
       {/* Modal */}
       {modalContent && (
