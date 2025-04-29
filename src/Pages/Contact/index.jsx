@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Contact/Contact.css';
-import { FaFacebook, FaTiktok, FaInstagram } from 'react-icons/fa';
+import { FaFacebook,  FaTiktok, FaInstagram } from 'react-icons/fa';
 
 function Contact() {
-  const [showVideo, setShowVideo] = useState(false);
-
   return (
     <div>
+      {/* Animated Heading at the Top */}
       <h1 className="contact-heading-animated">Get in Touch</h1>
 
       <div className="contact-section">
@@ -21,33 +20,20 @@ function Contact() {
 
         {/* Right Side */}
         <div className="contact-right">
-          {!showVideo ? (
-            <button className="intro-button" onClick={() => setShowVideo(true)}>
-              Watch My Intro Video
-            </button>
-          ) : (
-            <div className="video-container">
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/5FLtmVe8XNk"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-              <button className="back-button" onClick={() => setShowVideo(false)}>
-                Back
-              </button>
-            </div>
-          )}
+          <button
+            className="intro-button"
+            onClick={() =>
+              window.open('https://www.youtube.com/watch?v=5FLtmVe8XNk', '_blank')
+            }
+          >
+            Watch My Intro Video
+          </button>
 
-          {/* Social Media Icons */}
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noreferrer">
               <FaFacebook />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <a href="hhttps://www.instagram.com" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
             <a href="https://tiktok.com" target="_blank" rel="noreferrer">
