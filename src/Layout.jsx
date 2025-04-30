@@ -1,31 +1,56 @@
-import React, { useState } from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText, Box, CssBaseline, Button, Dialog } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import {
+  AppBar, Toolbar, IconButton, Typography, Drawer,
+  List, ListItem, ListItemText, Box, CssBaseline,
+  Button, Dialog
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import LoginForm from './Pages/LoginForm/LoginForm'; // Import the LoginForm
+import LoginForm from './Pages/LoginForm';
 
 const drawerWidth = 180;
 
 const Layout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openLogin, setOpenLogin] = useState(false);  // For opening the login form
+  const [openLogin, setOpenLogin] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem('authToken'));
+  const navigate = useNavigate();
+
+  // For setting the state after the page reload
+  useEffect(() => {
+    const savedToken = localStorage.getItem('authToken');
+    setToken(savedToken);
+  }, []);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
   const handleLoginClick = () => {
-    setOpenLogin(true);  // Open login form on button click
+    setOpenLogin(true);
   };
 
   const handleCloseLogin = () => {
-    setOpenLogin(false);  // Close login form
+    setOpenLogin(false);
+    const savedToken = localStorage.getItem('authToken');
+    setToken(savedToken); // Update token state after login
+    navigate('/Education'); // Navigate to Education after successful login
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    setToken(null); // Remove the token from state
+    navigate('/'); // Navigate to Home after logout
+  };
+
+  const allPages = ['Home', 'About', 'Skills', 'Contact', 'Education', 'Projects', 'Certifications'];
+  const privatePages = ['Education', 'Projects', 'Certifications'];
+  const visiblePages = token ? privatePages : allPages;
 
   const drawer = (
     <Box sx={{ backgroundColor: '#222', height: '100%', pt: 6 }}>
       <List>
-        {['Home', 'About', 'Education', 'Skills', 'Projects', 'Certifications', 'Contact'].map((text) => (
+        {visiblePages.map((text) => (
           <ListItem
             button
             key={text}
@@ -58,7 +83,7 @@ const Layout = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      
+
       {/* Header */}
       <AppBar position="fixed" sx={{ backgroundColor: '#222', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
@@ -66,18 +91,18 @@ const Layout = () => {
             variant="h4"
             sx={{
               fontWeight: 700,
-              animation: 'blinkZoom 1s infinite', // Blink aur zoom-in/out effect
+              animation: 'blinkZoom 1s infinite',
               '@keyframes blinkZoom': {
                 '0%': {
                   transform: 'scale(1)',
                   textShadow: '0 0 10px rgba(245, 248, 248, 0.8)',
                 },
                 '50%': {
-                  transform: 'scale(1.2)', // Zoom-in effect
+                  transform: 'scale(1.2)',
                   textShadow: '0 0 20px rgba(245, 250, 250, 0.8)',
                 },
                 '100%': {
-                  transform: 'scale(1)', // Zoom-out effect
+                  transform: 'scale(1)',
                   textShadow: '0 0 10px rgba(245, 252, 252, 0.8)',
                 },
               },
@@ -85,10 +110,14 @@ const Layout = () => {
           >
             Portfolio
           </Typography>
-          
-          {/* Login Button */}
-          <Button color="inherit" onClick={handleLoginClick}>Login</Button> {/* Open login form */}
-          
+
+          {/* Login/Logout Button */}
+          {!token ? (
+            <Button color="inherit" onClick={handleLoginClick}>Login</Button>
+          ) : (
+            <Button color="inherit" onClick={handleLogout}>Logout</Button>
+          )}
+
           <IconButton
             color="inherit"
             aria-label="open drawer"
