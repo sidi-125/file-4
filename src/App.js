@@ -9,6 +9,8 @@ import Projects from './Pages/Projects';
 import Certifications from './Pages/Certifications';
 import Education from './Pages/Education';
 import Home from './Pages/Home';
+import PrivateRoute from './Pages/Privateroute'; 
+import LoginForm from './Pages/LoginForm'; 
 import './App.css';
 
 function App() {
@@ -16,13 +18,37 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
+          {/* Public Routes */}
           <Route index element={<Home />} />
           <Route path="About" element={<About />} />
           <Route path="Contact" element={<Contact />} />
           <Route path="Skills" element={<Skills />} />
-          <Route path="Projects" element={<Projects />} />
-          <Route path="Certifications" element={<Certifications />} />
-          <Route path="Education" element={<Education />} />
+          
+          <Route
+            path="Education"
+            element={
+              <PrivateRoute>
+                <Education />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="Projects"
+            element={
+              <PrivateRoute>
+                <Projects />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="Certifications"
+            element={
+              <PrivateRoute>
+                <Certifications />
+              </PrivateRoute>
+            }
+          />
+          <Route path="login" element={<LoginForm onClose={() => {}} />} /> {/* Login route */}
         </Route>
       </Routes>
     </Router>

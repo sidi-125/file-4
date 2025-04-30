@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import { Button, TextField, Box, Typography } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirect
 
 const LoginForm = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate for redirecting
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,14 +17,21 @@ const LoginForm = ({ onClose }) => {
       const response = await axios.post('https://reqres.in/api/login', {
         email,  
         password
-      }, {headers:{"x-api-key": "reqres-free-v1"
-      }});
+      }, {
+        headers: {
+          "x-api-key": "reqres-free-v1"
+        }
+      });
+
       // Handle the response, save the token, and close the form
       const token = response.data.token;
       localStorage.setItem('authToken', token);  // Save token to localStorage
 
       alert('Login successful!');
       onClose(); // Close the login form
+
+      // Redirect to a protected route (for example /education)
+      navigate('/education');
     } catch (err) {
       setError('Invalid credentials');
     }
